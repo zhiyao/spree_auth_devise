@@ -1,6 +1,10 @@
+
 <% if spree_current_user %>
-  <li><%= link_to t(:my_account), spree.account_path %></li>
+  <li><%= link_to spree.account_path do %>
+  	<i class = "icon-user" rel="tooltip" data-placement="bottom" data-original-title="My Account"></i>
+  <% end %>
+  </li>
   <li><%= link_to t(:logout), spree.destroy_user_session_path %></li>
 <% else %>
-  <li id="link-to-login"><%= link_to t(:login), spree.login_path %></li>
+  <li id="link-to-login"><i class = "icon-user"></i><%= link_to t(:login), spree.login_path, {rel: 'tooltip', :"data-placement" => 'bottom', :"data-original-title" => 'Login'} %></li>
 <% end %>
