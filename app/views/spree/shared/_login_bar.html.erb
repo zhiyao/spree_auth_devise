@@ -1,10 +1,15 @@
 
 <% if spree_current_user %>
   <li><%= link_to spree.account_path do %>
-  	<i class = "icon-user" rel="tooltip" data-placement="bottom" data-original-title="My Account"></i>
+  	<i class = "icon-user icon-large" rel="tooltip" data-placement="bottom" data-original-title="My Account"></i>
   <% end %>
   </li>
-  <li><%= link_to t(:logout), spree.destroy_user_session_path %></li>
+  <li><%= link_to spree.destroy_user_session_path do %>
+  	<i class = "icon-signout icon-large" rel="tooltip" data-placement="bottom" data-original-title="Logout"></i>
+  <% end %>
+  </li>
 <% else %>
-  <li id="link-to-login"><i class = "icon-user"></i><%= link_to t(:login), spree.login_path, {rel: 'tooltip', :"data-placement" => 'bottom', :"data-original-title" => 'Login'} %></li>
+  <li id="link-to-login"><%= link_to spree.login_path do %>
+  	<i class = "icon-signin icon-large" rel="tooltip" data-placement="bottom" data-original-title="Login"></i>
+  <% end %>
 <% end %>
